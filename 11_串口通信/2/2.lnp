@@ -1,0 +1,6 @@
+"STARTUP.obj",
+"main.obj",
+"delay.obj",
+"lcd.obj",
+"usart.obj" 
+TO "2" 

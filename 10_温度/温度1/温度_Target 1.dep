@@ -1,0 +1,2 @@
+Dependencies for Project '温度', Target 'Target 1': (DO NOT MODIFY !)
+F (.\温度.c)(0x552A289D)(-c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork -I D:\Keil_v5\ARM\RV31\INC-I D:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.0\CMSIS\Include-I D:\Keil_v5\ARM\PACK\Keil\SAMG_DFP\1.1.0\Device\Include\SAMG51-D__SAMG51G18__-o .\温度.o --omf_browse .\温度.crf --depend .\温度.d)

@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"main.obj" 
+TO "1" 
+CODE( 0X0000-0X0FFF )

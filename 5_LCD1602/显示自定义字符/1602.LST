@@ -1,0 +1,122 @@
+C51 COMPILER V9.01   1602                                                                  03/21/2015 22:01:58 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE 1602
+OBJECT MODULE PLACED IN 1602.OBJ
+COMPILER INVOKED BY: D:\keil4\0000\C51\BIN\C51.EXE 1602.c LARGE BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<reg51.h>
+   2          #define uint unsigned int 
+   3          #define uchar unsigned char 
+   4          sbit en=P2^7;
+   5          sbit rs=P2^6;
+   6          sbit rw=P2^5;
+   7          void delayus(uint tus);
+   8          void wdir(int dir);
+   9          void wdat(int dat);
+  10          void ini();
+  11          void line(char li);
+  12          char wang[8]={0x1f,0x05,0x04,0x1F,0x04,0x04,0x04,0x1F};//王 字
+  13          char bug_head[8]={0x1B,0x0A,0x0E,0x11,0x1B,0x11,0x15,0x0E};//只能用IcharI存
+  14          void incgram(uchar chp,char *cust);
+  15          void main()
+  16          {
+  17   1       int i,m=0x40;
+  18   1       
+  19   1       ini();
+  20   1       incgram(0,wang);
+  21   1       incgram(1,bug_head);
+  22   1       
+  23   1       wdir(0x84);
+  24   1       wdat(0);
+  25   1       wdat(1);
+  26   1       wdat(0x39);//显示数字9
+  27   1       while(1);
+  28   1      }
+*** WARNING C280 IN LINE 17 OF 1602.C: 'i': unreferenced local variable
+  29          
+  30          
+  31          void delayus(uint tus)
+  32          {
+  33   1       while(tus--);
+  34   1      }
+  35          
+  36          void wdir(int dir)//directive 命令
+  37          {//写指令
+  38   1       en=0;//关闭使能，输入数据
+  39   1       rw=0;//5号引脚：0写入，1读取
+  40   1       rs=0;//4号引脚：0指令，1数据
+  41   1       P0=dir;//传递指令
+  42   1       en=1;//打开使能，建立数据
+  43   1       en=0;//下降沿，保存数据
+  44   1       delayus(100);//没有这个延时，将什么也输不出来
+  45   1      }
+  46          void wdat(int dat)//date 数据
+  47          {//写数据
+  48   1       en=0;
+  49   1       rw=0;
+  50   1       rs=1;
+  51   1       P0=dat;
+  52   1       en=1;
+  53   1       en=0;
+  54   1       delayus(100);//没有这个延时，什么也输不出来
+C51 COMPILER V9.01   1602                                                                  03/21/2015 22:01:58 PAGE 2   
+
+  55   1      }
+  56          void ini()//initialize 重置
+  57          {
+  58   1       /*wdir(0x38);
+  59   1       wdir(0x0c);
+  60   1       wdir(0x06);
+  61   1       wdir(0x01);
+  62   1       
+  63   1       delayus(100);*/
+  64   1        wdir(0x38);//设置16x2显示，5x7点阵，8位数据接口
+  65   1        wdir(0x0f);//开显示，显示光标，光标闪烁
+  66   1        wdir(0x05);//整屏右移
+  67   1        wdir(0x01);//清屏
+  68   1        line(1); //posi(0,0);//初始化光标位置
+  69   1      }
+  70          void line(char li)//选择 位置（行）
+  71          {
+  72   1        if(li==1) wdir(0x80);
+  73   1        if(li==2) wdir(0xc0);
+  74   1        
+  75   1      }
+  76          
+  77          void incgram(uchar chp,char *cust)//将自定义字符写入CGRAM
+  78          {
+  79   1       
+  80   1       int i,temp;
+  81   1       for(i=0;i<8;i++)
+  82   1        {
+  83   2        temp=0x40+i+8*chp;
+  84   2        wdir(temp);//往CGRAM写自定义字符，选择第chp个字的第i行
+  85   2        wdat(cust[i]);
+  86   2        
+  87   2        }
+  88   1      }
+  89          
+  90          
+  91          
+  92          
+  93          
+  94          
+  95          
+  96          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    287    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =     16      12
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

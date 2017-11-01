@@ -1,0 +1,59 @@
+C51 COMPILER V9.01   _Ð¶Ï¼ÆÊ±                                                              02/09/2015 19:04:48 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE _Ð¶Ï¼ÆÊ±
+OBJECT MODULE PLACED IN ÖÐ¶Ï¼ÆÊ±.OBJ
+COMPILER INVOKED BY: D:\keil4\0000\C51\BIN\C51.EXE ÖÐ¶Ï¼ÆÊ±.c ROM(COMPACT) BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<reg51.h>
+   2          #include<intrins.h>
+   3          #define uint unsigned int
+   4          #define uchar unsigned char
+   5          uint time=0;
+   6          void timer();
+   7          
+   8          void main()
+   9          {
+  10   1       uint led=0x01;
+  11   1        timer();
+  12   1        while(1)
+  13   1        {
+  14   2        P0=led;
+  15   2        if(time==20) {time=0;led=_crol_(led,1);}//1s
+  16   2        }
+  17   1      }
+  18          void timer()//ÖÐ¶Ï Ê±¼ä50ms
+  19          {
+  20   1       TMOD=0X01;
+  21   1       TH0=0x3D;
+  22   1       TL0=0x0F8;
+  23   1       ET0=1;
+  24   1       EA=1;
+  25   1       TR0=1;
+  26   1      }
+  27          void timer0()interrupt 1
+  28          {
+  29   1       time++;
+  30   1        TH0=0x3D;
+  31   1       TL0=0x0F8;
+  32   1      }
+  33          
+  34          
+  35          
+  36          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     76    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

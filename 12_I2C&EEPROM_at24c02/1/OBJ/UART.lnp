@@ -1,0 +1,9 @@
+".\OBJ\STARTUP.obj",
+".\OBJ\main.obj",
+".\OBJ\delay.obj",
+".\OBJ\lcd.obj",
+".\OBJ\usart.obj",
+".\OBJ\i2c.obj",
+".\OBJ\eeprom.obj" 
+TO ".\OBJ\UART" REGFILE (.\OBJ\UART.ORC) 
+PRINT(".\UART.m51") RAMSIZE(256) 

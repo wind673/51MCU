@@ -1,0 +1,54 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+D:\软件安装\51单片机开发\C51测试程序\11_串口通信\3\3.uvproj
+Project File Date:  05/26/2015
+
+<h2>Output:</h2>
+Build target '目标 1'
+assembling STARTUP.A51...
+compiling delay.c...
+USER\delay.c(1): warning C318: can't open file 'delay.h'
+compiling lcd.c...
+USER\lcd.c(1): warning C318: can't open file 'lcd.h'
+USER\LCD.C(7): warning C206: 'wdir': missing function-prototype
+USER\LCD.C(7): error C267: 'wdir': requires ANSI-style prototype
+USER\LCD.C(27): error C141: syntax error near 'dat', expected ')'
+USER\LCD.C(29): error C202: 'en': undefined identifier
+USER\LCD.C(30): error C202: 'rw': undefined identifier
+USER\LCD.C(31): error C202: 'rs': undefined identifier
+USER\LCD.C(32): error C202: 'P0': undefined identifier
+USER\LCD.C(33): error C202: 'en': undefined identifier
+compiling main.c...
+USER\main.c(1): warning C318: can't open file 'main.h'
+USER\MAIN.C(11): warning C206: 'Usart_init': missing function-prototype
+USER\MAIN.C(12): warning C206: 'lcd_init': missing function-prototype
+USER\MAIN.C(13): error C202: 'receiveData': undefined identifier
+compiling uart.c...
+USER\uart.c(1): warning C318: can't open file 'uart.h'
+USER\UART.C(9): error C202: 'SCON': undefined identifier
+USER\UART.C(10): error C202: 'TMOD': undefined identifier
+USER\UART.C(11): error C202: 'PCON': undefined identifier
+USER\UART.C(12): error C202: 'TH1': undefined identifier
+USER\UART.C(13): error C202: 'TL1': undefined identifier
+USER\UART.C(14): error C202: 'ES': undefined identifier
+USER\UART.C(15): error C202: 'EA': undefined identifier
+USER\UART.C(16): error C202: 'TR1': undefined identifier
+USER\UART.C(24): error C202: 'SBUF': undefined identifier
+USER\UART.C(25): error C202: 'RI': undefined identifier
+USER\UART.C(26): error C202: 'SBUF': undefined identifier
+USER\UART.C(27): error C202: 'TI': undefined identifier
+USER\UART.C(28): error C202: 'TI': undefined identifier
+目标未创建
+Build target '目标 1'
+compiling main.c...
+assembling STARTUP.A51...
+compiling delay.c...
+compiling lcd.c...
+compiling uart.c...
+linking...
+Program Size: data=13.0 xdata=0 code=259
+creating hex file from ".\OBJ\3"...
+".\OBJ\3" - 0 Error(s), 0 Warning(s).

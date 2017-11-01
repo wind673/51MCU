@@ -1,0 +1,59 @@
+C51 COMPILER V9.01   MAIN                                                                  04/16/2015 18:51:56 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: D:\keil4\0000\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include"com.h"  
+   2          
+   3          uchar unlcd=1;
+   4          
+   5          void main()
+   6          {
+   7   1         //ds_write_main();
+   8   1         lcd_init();
+   9   1         inf_init();
+  10   1         lcd_custom(0,nian);
+*** ERROR C202 IN LINE 10 OF MAIN.C: 'nian': undefined identifier
+  11   1         lcd_custom(1,yue);
+*** ERROR C202 IN LINE 11 OF MAIN.C: 'yue': undefined identifier
+  12   1         lcd_custom(2,ri);
+*** ERROR C202 IN LINE 12 OF MAIN.C: 'ri': undefined identifier
+  13   1         
+  14   1        
+  15   1         
+  16   1      while(1)
+  17   1      {  
+  18   2         
+  19   2         //Ñ¡ÔñÄ£Ê½
+  20   2         
+  21   2         if(fcmode==0)
+*** ERROR C202 IN LINE 21 OF MAIN.C: 'fcmode': undefined identifier
+  22   2         {
+  23   3         if(unlcd==1)
+  24   3         {lcd_init();ds_lcd01();unlcd=2;}
+  25   3         ds_read_main();
+  26   3         ds_lcd1(); 
+  27   3       
+  28   3         }
+  29   2         
+  30   2         if(fcmode==1)
+  31   2         {
+  32   3         if(unlcd==2)
+  33   3           {lcd_init();ds_lcd02();unlcd=1;}
+  34   3            ds_read_main();
+  35   3            ds_lcd2();
+  36   3         
+  37   3         }
+  38   2        
+  39   2      }
+  40   1      
+  41   1      }
+  42          
+  43          
+  44          
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  4 ERROR(S)

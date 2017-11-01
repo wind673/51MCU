@@ -1,0 +1,59 @@
+C51 COMPILER V9.01   DELAY                                                                 03/22/2015 20:51:09 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE DELAY
+OBJECT MODULE PLACED IN delay.OBJ
+COMPILER INVOKED BY: D:\keil4\0000\C51\BIN\C51.EXE delay.c LARGE BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          //ÑÓÊ±
+   2          
+   3          void delay1ms();
+   4          void delay500us();
+   5          void delay6ms();
+   6          void delay100us();
+   7          
+   8          
+   9          void delay6ms()
+  10          {
+  11   1          uchar a,b;
+*** ERROR C202 IN LINE 11 OF DELAY.C: 'uchar': undefined identifier
+*** ERROR C141 IN LINE 11 OF DELAY.C: syntax error near 'a'
+  12   1          for(b=40;b>0;b--)
+*** ERROR C202 IN LINE 12 OF DELAY.C: 'b': undefined identifier
+  13   1              for(a=73;a>0;a--);
+*** ERROR C202 IN LINE 13 OF DELAY.C: 'a': undefined identifier
+  14   1      }
+  15          
+  16          
+  17          void delay1ms()
+  18          {
+  19   1         uchar a,b;
+*** ERROR C202 IN LINE 19 OF DELAY.C: 'uchar': undefined identifier
+*** ERROR C141 IN LINE 19 OF DELAY.C: syntax error near 'a'
+  20   1          for(b=198;b>0;b--)
+*** ERROR C202 IN LINE 20 OF DELAY.C: 'b': undefined identifier
+  21   1             for(a=1;a>0;a--);
+*** ERROR C202 IN LINE 21 OF DELAY.C: 'a': undefined identifier
+  22   1      }
+  23          
+  24          
+  25          void delay500us() 
+  26          {
+  27   1          uchar a,b;
+*** ERROR C202 IN LINE 27 OF DELAY.C: 'uchar': undefined identifier
+*** ERROR C141 IN LINE 27 OF DELAY.C: syntax error near 'a'
+  28   1          for(b=29;b>0;b--)
+*** ERROR C202 IN LINE 28 OF DELAY.C: 'b': undefined identifier
+  29   1              for(a=7;a>0;a--);
+*** ERROR C202 IN LINE 29 OF DELAY.C: 'a': undefined identifier
+  30   1      }
+  31          
+  32          void delay100us()
+  33          {
+  34   1          unsigned char a;
+  35   1          for(a=48;a>0;a--);
+  36   1      }
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  12 ERROR(S)

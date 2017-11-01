@@ -1,0 +1,9 @@
+".\OBJ\STARTUP.obj",
+".\OBJ\main.obj",
+".\OBJ\delay.obj",
+".\OBJ\lcd.obj",
+".\OBJ\usart.obj",
+".\OBJ\i2c.obj",
+".\OBJ\eeprom.obj" 
+TO ".\OBJ\EEPROM" REGFILE (.\OBJ\EEPROM.ORC) 
+PRINT(".\EEPROM.m51") RAMSIZE(256) 

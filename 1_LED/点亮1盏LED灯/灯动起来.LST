@@ -1,0 +1,56 @@
+C51 COMPILER V9.01   灯禵起来                                                              01/26/2015 01:34:24 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE 灯禵起来
+OBJECT MODULE PLACED IN 灯动起来.OBJ
+COMPILER INVOKED BY: D:\keil4\0000\C51\BIN\C51.EXE 灯动起来.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<reg51.h>
+   2          #define uint unsigned int
+   3          sbit n0=P1^0;sbit n1=P1^1;sbit n2=P1^2;sbit n3=P1^3;
+   4          sbit n4=P1^4;sbit n5=P1^5;sbit n6=P1^6;sbit n7=P1^7;
+   5          int a[8]={0},i;
+   6          int delay(int j);
+   7          void main()
+   8          {
+   9   1        int k=0;
+  10   1        while(1)
+  11   1        {
+  12   2         
+  13   2         
+  14   2         for(i=0;i<8;i++)
+  15   2         {
+  16   3           a[i]=0;  
+  17   3         }
+  18   2         a[k]=1;
+  19   2         delay(5);
+  20   2         n0=a[0]; n1=a[1]; n2=a[2]; n3=a[3];
+  21   2         n4=a[4]; n5=a[5]; n6=a[6]; n7=a[7];
+  22   2         k++;
+  23   2         if(k==8)
+  24   2         k=0;
+  25   2        }
+  26   1      }
+  27          
+  28          int delay(int j)
+  29          {
+  30   1       int s=j*10000;
+  31   1       while(s--);
+  32   1      }
+*** WARNING C290 IN LINE 32 OF 灯动起来.C: missing return value
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    157    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     18       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,7 @@
+".\OBJ\STARTUP.obj",
+".\OBJ\main.obj",
+".\OBJ\lcd.obj",
+".\OBJ\uart.obj",
+".\OBJ\delay.obj" 
+TO ".\OBJ\UART" REGFILE (.\OBJ\UART.ORC) 
+PRINT(".\UART.m51")

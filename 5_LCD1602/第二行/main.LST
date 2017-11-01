@@ -1,0 +1,36 @@
+C51 COMPILER V9.01   MAIN                                                                  03/22/2015 21:25:45 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: D:\keil4\0000\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<com.h>
+   2          
+   3          void main()
+   4          {
+   5   1         
+   6   1         
+   7   1         lcd_init();
+   8   1          posi(1,5);
+   9   1         wdat(0x35);
+  10   1          posi(2,7);
+  11   1         wdat(0x37);
+  12   1         while(1);
+  13   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    181    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

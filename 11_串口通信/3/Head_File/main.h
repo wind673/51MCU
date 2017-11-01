@@ -1,0 +1,27 @@
+#ifndef __MAIN_H
+#define __MAIN_H
+#include<reg51.h>
+#ifndef  __uchar
+#define  __uchar
+#define uchar unsigned char 
+#define uint unsigned int
+#endif
+
+
+//全局变量
+//extern unsigned char receiveData;
+
+
+//包含头文件
+#include "delay.h"
+#include "lcd.h"
+#include "uart.h"
+
+
+
+
+
+
+
+
+#endif

@@ -1,0 +1,52 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+D:\软件安装\51单片机开发\C51测试程序\12_I2C&EEPROM_at24c02\1\1.uvproj
+Project File Date:  05/24/2015
+
+<h2>Output:</h2>
+Build target 'UART'
+assembling STARTUP.A51...
+compiling main.c...
+compiling delay.c...
+compiling lcd.c...
+compiling usart.c...
+USER\USART.C(8): error C202: 'SCON': undefined identifier
+USER\USART.C(9): error C202: 'TMOD': undefined identifier
+USER\USART.C(10): error C202: 'PCON': undefined identifier
+USER\USART.C(11): error C202: 'TH1': undefined identifier
+USER\USART.C(12): error C202: 'TL1': undefined identifier
+USER\USART.C(13): error C202: 'ES': undefined identifier
+USER\USART.C(14): error C202: 'EA': undefined identifier
+USER\USART.C(15): error C202: 'TR1': undefined identifier
+USER\USART.C(23): error C202: 'SBUF': undefined identifier
+USER\USART.C(24): error C202: 'RI': undefined identifier
+USER\USART.C(25): error C202: 'TI': undefined identifier
+USER\USART.C(26): error C202: 'TI': undefined identifier
+目标未创建
+Build target 'UART'
+assembling STARTUP.A51...
+compiling main.c...
+compiling delay.c...
+compiling lcd.c...
+compiling usart.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY300MS?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY700US?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY100MS?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY1MS?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY60US?DELAY
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD_CUSTOM?LCD
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD_STR?LCD
+Program Size: data=40.1 xdata=0 code=1391
+creating hex file from ".\OBJ\UART"...
+".\OBJ\UART" - 0 Error(s), 7 Warning(s).

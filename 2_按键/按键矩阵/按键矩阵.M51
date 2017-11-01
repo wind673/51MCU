@@ -1,0 +1,175 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        02/06/2015  22:58:21  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\KEIL4\0000\C51\BIN\BL51.EXE STARTUP.obj, °´¼ü¾ØÕó.obj TO °´¼ü¾ØÕó
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  STARTUP.obj (?C_STARTUP)
+  °´¼ü¾ØÕó.obj (_´¼ü¾ØÕ_)
+  D:\KEIL4\0000\C51\LIB\C51S.LIB (?C_INIT)
+  D:\KEIL4\0000\C51\LIB\C51S.LIB (?C?SIDIV)
+  D:\KEIL4\0000\C51\LIB\C51S.LIB (?C?UIDIV)
+
+
+LINK MAP OF MODULE:  °´¼ü¾ØÕó (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         ?DT?_´¼ü¾ØÕ_
+            IDATA   000AH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     008BH     UNIT         ?C?LIB_CODE
+            CODE    0917H     0053H     UNIT         ?PR?KEY?_´¼ü¾ØÕ_
+            CODE    096AH     0028H     UNIT         ?PR?MAIN?_´¼ü¾ØÕ_
+            CODE    0992H     000BH     UNIT         ?PR?_DELAYUS?_´¼ü¾ØÕ_
+            CODE    099DH     000AH     UNIT         ?CO?_´¼ü¾ØÕ_
+            CODE    09A7H     0007H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   °´¼ü¾ØÕó (?C_STARTUP)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?_´¼ü¾ØÕ_
+  +--> ?C_INITSEG
+
+?PR?MAIN?_´¼ü¾ØÕ_
+  +--> ?PR?KEY?_´¼ü¾ØÕ_
+  +--> ?CO?_´¼ü¾ØÕ_
+
+
+
+SYMBOL TABLE OF MODULE:  °´¼ü¾ØÕó (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/06/2015  22:58:21  PAGE 2
+
+
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:0800H         SEGMENT       ?C_C51STARTUP
+  I:000AH         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:0803H         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:0800H         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:0800H         LINE#         133
+  C:0802H         LINE#         134
+  C:0803H         LINE#         135
+  C:0804H         LINE#         136
+  C:0806H         LINE#         185
+  C:0809H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        _´¼ü¾ØÕ_
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:00A0H         PUBLIC        P2
+  C:096AH         PUBLIC        main
+  D:0008H         PUBLIC        keyc
+  D:0009H         PUBLIC        keyr
+  C:099DH         PUBLIC        pnum
+  C:0917H         PUBLIC        key
+  C:0992H         PUBLIC        _delayus
+  -------         PROC          MAIN
+  -------         DO            
+  D:0004H         SYMBOL        i
+  -------         ENDDO         
+  C:096AH         LINE#         8
+  C:096AH         LINE#         9
+  C:096AH         LINE#         11
+  C:096DH         LINE#         12
+  C:096DH         LINE#         13
+  C:096DH         LINE#         14
+  C:0970H         LINE#         15
+BL51 BANKED LINKER/LOCATER V6.22                                                      02/06/2015  22:58:21  PAGE 3
+
+
+  C:0973H         LINE#         16
+  C:0982H         LINE#         17
+  C:0990H         LINE#         18
+  -------         ENDPROC       MAIN
+  -------         PROC          KEY
+  C:0917H         LINE#         21
+  C:0917H         LINE#         22
+  C:0917H         LINE#         24
+  C:091DH         LINE#         25
+  C:091DH         LINE#         27
+  C:0923H         LINE#         28
+  C:0923H         LINE#         29
+  C:0926H         LINE#         30
+  C:092EH         LINE#         31
+  C:0936H         LINE#         32
+  C:093EH         LINE#         33
+  C:0946H         LINE#         34
+  C:0949H         LINE#         35
+  C:0951H         LINE#         36
+  C:0959H         LINE#         37
+  C:0961H         LINE#         38
+  C:0969H         LINE#         40
+  C:0969H         LINE#         42
+  C:0969H         LINE#         45
+  -------         ENDPROC       KEY
+  -------         PROC          _DELAYUS
+  D:0006H         SYMBOL        tus
+  C:0992H         LINE#         46
+  C:0992H         LINE#         47
+  C:0992H         LINE#         48
+  C:099CH         LINE#         49
+  -------         ENDPROC       _DELAYUS
+  -------         ENDMOD        _´¼ü¾ØÕ_
+
+  -------         MODULE        ?C?SIDIV
+  C:088CH         PUBLIC        ?C?SIDIV
+  -------         ENDMOD        ?C?SIDIV
+
+  -------         MODULE        ?C?UIDIV
+  C:08C2H         PUBLIC        ?C?UIDIV
+  -------         ENDMOD        ?C?UIDIV
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAYUS?_´¼ü¾ØÕ_
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00A5H BYTE ( 8%) *
+******************************************************************************
+
+Program Size: data=11.0 xdata=0 code=433
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)

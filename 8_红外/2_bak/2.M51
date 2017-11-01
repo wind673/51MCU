@@ -1,0 +1,224 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        03/22/2015  19:46:36  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\KEIL4\0000\C51\BIN\BL51.EXE STARTUP.obj, 2.obj TO 2
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  STARTUP.obj (?C_STARTUP)
+  2.obj (2)
+  D:\KEIL4\0000\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  2 (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0005H     UNIT         ?DT?2
+            DATA    000DH     0002H     UNIT         _DATA_GROUP_
+            IDATA   000FH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0003H     ABSOLUTE     
+                    0006H     07FAH                  *** GAP ***
+            CODE    0800H     00B9H     UNIT         ?PR?INFRARED?2
+            CODE    08B9H     008CH     UNIT         ?C_C51STARTUP
+            CODE    0945H     0009H     UNIT         ?PR?DELAY6MS?2
+            CODE    094EH     0009H     UNIT         ?PR?DELAY1MS?2
+            CODE    0957H     0009H     UNIT         ?PR?DELAY500US?2
+            CODE    0960H     0007H     UNIT         ?PR?INTER_INIT?2
+            CODE    0967H     0004H     UNIT         ?C_INITSEG
+            CODE    096BH     0001H     UNIT         ?PR?MAIN?2
+
+
+
+OVERLAY MAP OF MODULE:   2 (?C_STARTUP)
+
+
+SEGMENT                          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH
+----------------------------------------------
+?C_C51STARTUP                  -----    -----
+  +--> ?PR?MAIN?2
+  +--> ?C_INITSEG
+
+*** NEW ROOT ***************************************************
+
+?PR?INFRARED?2                 000DH    0002H
+  +--> ?PR?DELAY6MS?2
+  +--> ?PR?DELAY1MS?2
+  +--> ?PR?DELAY500US?2
+
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/22/2015  19:46:36  PAGE 2
+
+
+
+SYMBOL TABLE OF MODULE:  2 (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:08B9H         SEGMENT       ?C_C51STARTUP
+  I:000FH         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:08BCH         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:08B9H         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:08B9H         LINE#         133
+  C:08BBH         LINE#         134
+  C:08BCH         LINE#         135
+  C:08BDH         LINE#         136
+  C:08BFH         LINE#         185
+  C:08C2H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        2
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00B0H         PUBLIC        P3
+  B:00A8H.7       PUBLIC        EA
+  C:0957H         PUBLIC        delay500us
+  C:094EH         PUBLIC        delay1ms
+  C:096BH         PUBLIC        main
+  C:0945H         PUBLIC        delay6ms
+  C:0960H         PUBLIC        inter_init
+  B:00B0H.2       PUBLIC        inf
+  D:0008H         PUBLIC        sure
+  B:00A8H.0       PUBLIC        EX0
+  B:0088H.0       PUBLIC        IT0
+  C:0800H         PUBLIC        infrared
+  D:0009H         PUBLIC        inf_dat
+  -------         PROC          DELAY6MS
+  -------         DO            
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/22/2015  19:46:36  PAGE 3
+
+
+  D:0006H         SYMBOL        a
+  D:0007H         SYMBOL        b
+  -------         ENDDO         
+  C:0945H         LINE#         13
+  C:0945H         LINE#         14
+  C:0945H         LINE#         16
+  C:0947H         LINE#         17
+  C:094DH         LINE#         18
+  -------         ENDPROC       DELAY6MS
+  -------         PROC          DELAY1MS
+  -------         DO            
+  D:0006H         SYMBOL        a
+  D:0007H         SYMBOL        b
+  -------         ENDDO         
+  C:094EH         LINE#         21
+  C:094EH         LINE#         22
+  C:094EH         LINE#         24
+  C:0950H         LINE#         25
+  C:0956H         LINE#         26
+  -------         ENDPROC       DELAY1MS
+  -------         PROC          DELAY500US
+  -------         DO            
+  D:0006H         SYMBOL        a
+  D:0007H         SYMBOL        b
+  -------         ENDDO         
+  C:0957H         LINE#         29
+  C:0957H         LINE#         30
+  C:0957H         LINE#         32
+  C:0959H         LINE#         33
+  C:095FH         LINE#         34
+  -------         ENDPROC       DELAY500US
+  -------         PROC          INTER_INIT
+  C:0960H         LINE#         13
+  C:0960H         LINE#         14
+  C:0960H         LINE#         15
+  C:0962H         LINE#         16
+  C:0964H         LINE#         17
+  C:0966H         LINE#         19
+  -------         ENDPROC       INTER_INIT
+  -------         PROC          INFRARED
+  -------         DO            
+  D:0001H         SYMBOL        AGC
+  D:0005H         SYMBOL        STA
+  D:0005H         SYMBOL        i
+  D:0004H         SYMBOL        n
+  D:000DH         SYMBOL        a
+  D:0082H         SYMBOL        temp
+  D:0002H         SYMBOL        tag
+  -------         ENDDO         
+  C:0800H         LINE#         21
+  C:081BH         LINE#         23
+  C:081FH         LINE#         24
+  C:0823H         LINE#         25
+  C:0826H         LINE#         26
+  C:082AH         LINE#         27
+  C:082DH         LINE#         28
+  C:0832H         LINE#         29
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/22/2015  19:46:36  PAGE 4
+
+
+  C:083CH         LINE#         30
+  C:083CH         LINE#         31
+  C:083CH         LINE#         32
+  C:083CH         LINE#         33
+  C:084AH         LINE#         34
+  C:0857H         LINE#         35
+  C:085AH         LINE#         36
+  C:085DH         LINE#         37
+  C:0864H         LINE#         38
+  C:086BH         LINE#         39
+  C:0873H         LINE#         40
+  C:0873H         LINE#         41
+  C:0875H         LINE#         42
+  C:0875H         LINE#         43
+  C:0880H         LINE#         44
+  C:0886H         LINE#         45
+  C:088AH         LINE#         46
+  C:0892H         LINE#         47
+  C:0895H         LINE#         48
+  C:0895H         LINE#         49
+  C:0895H         LINE#         50
+  C:0898H         LINE#         51
+  C:08A0H         LINE#         55
+  -------         ENDPROC       INFRARED
+  -------         PROC          MAIN
+  C:096BH         LINE#         5
+  C:096BH         LINE#         6
+  C:096BH         LINE#         9
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        2
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?INTER_INIT?2
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00F1H BYTE (11%) *
+******************************************************************************
+
+Program Size: data=16.0 xdata=0 code=370
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)

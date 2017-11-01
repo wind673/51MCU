@@ -1,0 +1,170 @@
+C51 COMPILER V9.01   DS1302                                                                05/23/2015 20:34:22 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE DS1302
+OBJECT MODULE PLACED IN .\OBJ\ds1302.obj
+COMPILER INVOKED BY: D:\keil4\0000\C51\BIN\C51.EXE USER\ds1302.c BROWSE INCDIR(.\Head_File) DEBUG OBJECTEXTEND PRINT(.\d
+                    -s1302.lst) TABS(2) OBJECT(.\OBJ\ds1302.obj)
+
+line level    source
+
+   1          #include "ds1302.h"
+*** ERROR C141 IN LINE 7 OF .\HEAD_FILE\DS1302.H: syntax error near 'ds_dir', expected ')'
+*** ERROR C141 IN LINE 8 OF .\HEAD_FILE\DS1302.H: syntax error near 'ds_address', expected ')'
+   2          
+   3          
+   4          void ds_write(uchar ds_dir,uchar ds_dat)
+*** ERROR C141 IN LINE 4 OF USER\DS1302.C: syntax error near 'ds_dir', expected ')'
+   5          {
+   6   1        uchar i,ds_bit;
+*** ERROR C141 IN LINE 6 OF USER\DS1302.C: syntax error near 'i'
+*** ERROR C202 IN LINE 6 OF USER\DS1302.C: 'i': undefined identifier
+   7   1        
+   8   1        ds_ce=0;//初始化CE
+*** ERROR C202 IN LINE 8 OF USER\DS1302.C: 'ds_ce': undefined identifier
+   9   1        ds_sclk=0;//拉低SCLK为上升沿做准备
+*** ERROR C202 IN LINE 9 OF USER\DS1302.C: 'ds_sclk': undefined identifier
+  10   1        ds_ce=1;//拉高CE 准备写入数据
+*** ERROR C202 IN LINE 10 OF USER\DS1302.C: 'ds_ce': undefined identifier
+  11   1       
+  12   1          ds_bit=0x01;
+*** ERROR C202 IN LINE 12 OF USER\DS1302.C: 'ds_bit': undefined identifier
+  13   1          for(i=0;i<8;i++)//传输命令
+*** ERROR C202 IN LINE 13 OF USER\DS1302.C: 'i': undefined identifier
+  14   1          {
+  15   2        
+  16   2         ds_io=ds_dir&ds_bit;
+*** ERROR C202 IN LINE 16 OF USER\DS1302.C: 'ds_io': undefined identifier
+  17   2         ds_sclk=1;//拉高SCLK，存入数据
+*** ERROR C202 IN LINE 17 OF USER\DS1302.C: 'ds_sclk': undefined identifier
+  18   2           ds_bit<<=1;//选位，顺便让1302稍微延时一下，防止掉数据
+*** ERROR C202 IN LINE 18 OF USER\DS1302.C: 'ds_bit': undefined identifier
+  19   2         ds_sclk=0;//为下次存入做准备
+*** ERROR C202 IN LINE 19 OF USER\DS1302.C: 'ds_sclk': undefined identifier
+  20   2          }
+  21   1        
+  22   1        
+  23   1        ds_bit=0x01;
+*** ERROR C202 IN LINE 23 OF USER\DS1302.C: 'ds_bit': undefined identifier
+  24   1          for(i=0;i<8;i++)//传输数据
+*** ERROR C202 IN LINE 24 OF USER\DS1302.C: 'i': undefined identifier
+  25   1          {
+  26   2         ds_io=ds_dat&ds_bit;
+*** ERROR C202 IN LINE 26 OF USER\DS1302.C: 'ds_io': undefined identifier
+  27   2         ds_bit<<=1;
+*** ERROR C202 IN LINE 27 OF USER\DS1302.C: 'ds_bit': undefined identifier
+  28   2         ds_sclk=1;
+*** ERROR C202 IN LINE 28 OF USER\DS1302.C: 'ds_sclk': undefined identifier
+  29   2         ds_sclk=0;
+*** ERROR C202 IN LINE 29 OF USER\DS1302.C: 'ds_sclk': undefined identifier
+  30   2          }
+  31   1         
+  32   1        
+  33   1      
+  34   1      }
+C51 COMPILER V9.01   DS1302                                                                05/23/2015 20:34:22 PAGE 2   
+
+  35          
+  36          
+  37          
+  38          unsigned char ds_read(uchar ds_address)
+*** ERROR C141 IN LINE 38 OF USER\DS1302.C: syntax error near 'ds_address', expected ')'
+  39          {
+  40   1          uchar i,ds_bit,ds_rdat=0;
+*** ERROR C141 IN LINE 40 OF USER\DS1302.C: syntax error near 'i'
+*** ERROR C202 IN LINE 40 OF USER\DS1302.C: 'i': undefined identifier
+  41   1          ds_ce=0;
+*** ERROR C202 IN LINE 41 OF USER\DS1302.C: 'ds_ce': undefined identifier
+  42   1        ds_sclk=0;
+*** ERROR C202 IN LINE 42 OF USER\DS1302.C: 'ds_sclk': undefined identifier
+  43   1          ds_ce=1;
+*** ERROR C202 IN LINE 43 OF USER\DS1302.C: 'ds_ce': undefined identifier
+  44   1        ds_bit=0x01;
+*** ERROR C202 IN LINE 44 OF USER\DS1302.C: 'ds_bit': undefined identifier
+  45   1          for(i=0;i<8;i++)
+*** ERROR C202 IN LINE 45 OF USER\DS1302.C: 'i': undefined identifier
+  46   1          {
+  47   2         ds_sclk=0;
+*** ERROR C202 IN LINE 47 OF USER\DS1302.C: 'ds_sclk': undefined identifier
+  48   2         ds_io=ds_address&ds_bit;
+*** ERROR C202 IN LINE 48 OF USER\DS1302.C: 'ds_io': undefined identifier
+  49   2         ds_sclk=1;
+*** ERROR C202 IN LINE 49 OF USER\DS1302.C: 'ds_sclk': undefined identifier
+  50   2           ds_bit<<=1;
+*** ERROR C202 IN LINE 50 OF USER\DS1302.C: 'ds_bit': undefined identifier
+  51   2          }
+  52   1        ds_io=1;//打开侦测io口
+*** ERROR C202 IN LINE 52 OF USER\DS1302.C: 'ds_io': undefined identifier
+  53   1        ds_bit=0;
+*** ERROR C202 IN LINE 53 OF USER\DS1302.C: 'ds_bit': undefined identifier
+  54   1          for(i=0;i<8;i++)
+*** ERROR C202 IN LINE 54 OF USER\DS1302.C: 'i': undefined identifier
+  55   1          {
+  56   2         ds_bit=0x00;
+*** ERROR C202 IN LINE 56 OF USER\DS1302.C: 'ds_bit': undefined identifier
+  57   2         ds_sclk=0;//制造下降沿 
+*** ERROR C202 IN LINE 57 OF USER\DS1302.C: 'ds_sclk': undefined identifier
+  58   2         if(ds_io==1) ds_bit=0x80;
+*** ERROR C202 IN LINE 58 OF USER\DS1302.C: 'ds_io': undefined identifier
+*** ERROR C202 IN LINE 58 OF USER\DS1302.C: 'ds_bit': undefined identifier
+  59   2         ds_rdat=ds_rdat|ds_bit; 
+*** ERROR C202 IN LINE 59 OF USER\DS1302.C: 'ds_rdat': undefined identifier
+  60   2         ds_sclk=1;
+*** ERROR C202 IN LINE 60 OF USER\DS1302.C: 'ds_sclk': undefined identifier
+  61   2         if(i<7) ds_rdat>>=1;//右移7次
+*** ERROR C202 IN LINE 61 OF USER\DS1302.C: 'i': undefined identifier
+*** ERROR C202 IN LINE 61 OF USER\DS1302.C: 'ds_rdat': undefined identifier
+  62   2          }
+  63   1        ds_io=0;//关闭侦测io口，停止接收数据
+*** ERROR C202 IN LINE 63 OF USER\DS1302.C: 'ds_io': undefined identifier
+  64   1        return ds_rdat;
+*** ERROR C202 IN LINE 64 OF USER\DS1302.C: 'ds_rdat': undefined identifier
+  65   1        
+  66   1      }
+  67          
+  68                                             /*
+  69          void ds_write_main()
+  70          {
+  71          
+C51 COMPILER V9.01   DS1302                                                                05/23/2015 20:34:22 PAGE 3   
+
+  72            ds_write(0x8e,0x00);//关闭保护位，允许操作
+  73            
+  74            ds_write(0x80,0x00);//写秒
+  75            ds_write(0x82,0x18);//写分
+  76            ds_write(0x84,0x14);//写时
+  77            ds_write(0x86,0x09);//写日
+  78            ds_write(0x88,0x05);//写月
+  79            ds_write(0x8a,0x06);//写星期
+  80            ds_write(0x8c,0x15);//写年
+  81            
+  82            ds_write(0x8e,0x80);//打开保护位，禁止任何操作
+  83          
+  84          }
+  85          
+  86                                             */
+  87          
+  88          void ds_read_main()
+  89          {
+  90   1      
+  91   1        uchar i,temp=0x81;
+*** ERROR C202 IN LINE 91 OF USER\DS1302.C: 'uchar': undefined identifier
+*** ERROR C141 IN LINE 91 OF USER\DS1302.C: syntax error near 'i'
+  92   1        ds_write(0x8e,0x00);
+*** ERROR C208 IN LINE 92 OF USER\DS1302.C: '_ds_write': too many actual parameters
+  93   1        for(i=0;i<7;i++)
+*** ERROR C202 IN LINE 93 OF USER\DS1302.C: 'i': undefined identifier
+  94   1        {
+  95   2        dsdat[i]=ds_read(temp);
+*** ERROR C202 IN LINE 95 OF USER\DS1302.C: 'i': undefined identifier
+  96   2        temp+=2;
+*** ERROR C202 IN LINE 96 OF USER\DS1302.C: 'temp': undefined identifier
+  97   2        }
+  98   1        ds_write(0x8e,0x80);
+*** ERROR C208 IN LINE 98 OF USER\DS1302.C: '_ds_write': too many actual parameters
+  99   1      }
+ 100          
+ 101          
+ 102          
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  52 ERROR(S)

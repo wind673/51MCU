@@ -1,0 +1,92 @@
+C51 COMPILER V9.01   蝊度                                                                  04/16/2015 18:58:39 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE 蝊度
+OBJECT MODULE PLACED IN 温度.OBJ
+COMPILER INVOKED BY: D:\keil4\0000\C51\BIN\C51.EXE 温度.c LARGE BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include"com.h"
+   2          
+   3          
+   4          
+   5          void main()
+   6          {
+   7   1        //初始化红外线及LCD
+   8   1        
+   9   1        inf_init();
+  10   1        lcd_init(); 
+  11   1        zhaochi_main();  
+  12   1        //存入自定义字符        
+  13   1        lcd_custom(0,zi_circle);lcd_custom(1,zi_1);
+  14   1        lcd_custom(2,zi_2);lcd_custom(3,zi_up);
+  15   1        lcd_custom(4,zi_down);lcd_custom(5,zi_all);
+  16   1        
+  17   1        
+  18   1        
+  19   1      while(1)
+  20   1      {
+  21   2         temper_simu();
+  22   2         catch_display(); 
+  23   2         temper_warn();
+  24   2         inf_tag=0;//重置标志
+  25   2         
+  26   2         
+  27   2         if(temper_mode==1)
+  28   2         {
+  29   3         inf_tag=0;//重置标志
+  30   3         ds_read_main();//读取实时温度
+  31   3         ds_lcd();//显示实时时间
+  32   3         ds_lcd01();//显示模式一的符号
+  33   3         ds_lcd_temper1();//显示实时温度
+  34   3         }
+  35   2         
+  36   2         if(temper_mode==2)
+  37   2         {
+  38   3          inf_tag=0;
+  39   3          ds_lcd02();
+  40   3          ds_lcd_temper2();
+  41   3          
+  42   3         }
+  43   2         
+  44   2        if(temper_mode==3)
+  45   2         {
+  46   3          inf_tag=0;
+  47   3          
+  48   3          
+  49   3          ds_lcd03();
+  50   3          delay100ms();
+  51   3          posi(2,temper_posi);wdat(' ');
+  52   3          
+  53   3         }
+  54   2      
+  55   2        
+C51 COMPILER V9.01   蝊度                                                                  04/16/2015 18:58:39 PAGE 2   
+
+  56   2        
+  57   2        
+  58   2        
+  59   2        
+  60   2        
+  61   2        
+  62   2        
+  63   2        
+  64   2        
+  65   2        
+  66   2      } 
+  67   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   5345    ----
+   CONSTANT SIZE    =     64    ----
+   XDATA SIZE       =    251      28
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

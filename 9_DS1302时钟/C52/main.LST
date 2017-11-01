@@ -1,0 +1,81 @@
+C51 COMPILER V9.01   MAIN                                                                  03/29/2015 16:05:57 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: D:\keil4\0000\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include"com.h"
+*** WARNING C206 IN LINE 15 OF INF_FUNCTION.H: 'inf_eq': missing function-prototype
+   2          uchar unlcd=1;
+   3          
+   4          void main()
+   5          {
+   6   1         //ds_write_main();
+   7   1         lcd_init();
+   8   1         inf_init();
+   9   1         lcd_custom(0,nian);
+  10   1         lcd_custom(1,yue);
+  11   1         lcd_custom(2,ri);
+  12   1         
+  13   1        
+  14   1         
+  15   1      while(1)
+  16   1      { 
+  17   2         //选择模式
+  18   2         if(fcmode==1)
+  19   2         {
+  20   3         if(unlcd==1)
+  21   3         {lcd_init();ds_lcd01();unlcd=2;}
+  22   3         ds_read_main();
+  23   3         ds_lcd1(); 
+  24   3         }
+  25   2        
+  26   2         if(fcmode==2)
+  27   2         {
+  28   3         if(unlcd==2)
+  29   3         {lcd_init();ds_lcd02();unlcd=1;}
+  30   3         ds_read_main();
+  31   3         ds_lcd2();
+  32   3         }
+  33   2        //调时间
+  34   2         if(fcstar==1)
+  35   2         {
+  36   3           wdir(0x0f);//显示光标
+  37   3           while(fcstar)
+  38   3               {
+  39   4                
+  40   4             posi(2,fcmove);
+  41   4             delay200ms();
+  42   4           }
+  43   3           
+  44   3         }
+  45   2         
+  46   2         
+  47   2         
+  48   2         
+  49   2      }
+  50   1      
+  51   1      
+  52   1      }
+  53          
+  54          
+C51 COMPILER V9.01   MAIN                                                                  03/29/2015 16:05:57 PAGE 2   
+
+  55          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   1641    ----
+   CONSTANT SIZE    =     24    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     19      10
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

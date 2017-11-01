@@ -1,0 +1,288 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+D:\软件安装\51单片机开发\C51测试程序\11_串口通信\1\1.uvproj
+Project File Date:  05/26/2015
+
+<h2>Output:</h2>
+Build target 'UART'
+assembling STARTUP.A51...
+compiling main.c...
+compiling lcd.c...
+compiling uart.c...
+USER\UART.C(8): error C202: 'SCON': undefined identifier
+USER\UART.C(9): error C202: 'TMOD': undefined identifier
+USER\UART.C(10): error C202: 'PCON': undefined identifier
+USER\UART.C(11): error C202: 'TH1': undefined identifier
+USER\UART.C(12): error C202: 'TL1': undefined identifier
+USER\UART.C(13): error C202: 'ES': undefined identifier
+USER\UART.C(14): error C202: 'EA': undefined identifier
+USER\UART.C(15): error C202: 'TR1': undefined identifier
+USER\UART.C(23): error C202: 'SBUF': undefined identifier
+USER\UART.C(24): error C202: 'RI': undefined identifier
+USER\UART.C(25): error C202: 'SBUF': undefined identifier
+USER\UART.C(26): error C202: 'TI': undefined identifier
+USER\UART.C(27): error C202: 'TI': undefined identifier
+compiling delay.c...
+目标未创建
+Build target 'UART'
+assembling STARTUP.A51...
+compiling main.c...
+compiling lcd.c...
+compiling uart.c...
+USER\UART.C(8): error C202: 'SCON': undefined identifier
+USER\UART.C(9): error C202: 'TMOD': undefined identifier
+USER\UART.C(10): error C202: 'PCON': undefined identifier
+USER\UART.C(11): error C202: 'TH1': undefined identifier
+USER\UART.C(12): error C202: 'TL1': undefined identifier
+USER\UART.C(13): error C202: 'ES': undefined identifier
+USER\UART.C(14): error C202: 'EA': undefined identifier
+USER\UART.C(15): error C202: 'TR1': undefined identifier
+USER\UART.C(23): error C202: 'SBUF': undefined identifier
+USER\UART.C(24): error C202: 'RI': undefined identifier
+USER\UART.C(25): error C202: 'SBUF': undefined identifier
+USER\UART.C(26): error C202: 'TI': undefined identifier
+USER\UART.C(27): error C202: 'TI': undefined identifier
+compiling delay.c...
+目标未创建
+Build target 'UART'
+assembling STARTUP.A51...
+compiling main.c...
+compiling lcd.c...
+compiling uart.c...
+USER\UART.C(8): error C202: 'SCON': undefined identifier
+USER\UART.C(9): error C202: 'TMOD': undefined identifier
+USER\UART.C(10): error C202: 'PCON': undefined identifier
+USER\UART.C(11): error C202: 'TH1': undefined identifier
+USER\UART.C(12): error C202: 'TL1': undefined identifier
+USER\UART.C(13): error C202: 'ES': undefined identifier
+USER\UART.C(14): error C202: 'EA': undefined identifier
+USER\UART.C(15): error C202: 'TR1': undefined identifier
+USER\UART.C(23): error C202: 'SBUF': undefined identifier
+USER\UART.C(24): error C202: 'RI': undefined identifier
+USER\UART.C(25): error C202: 'SBUF': undefined identifier
+USER\UART.C(26): error C202: 'TI': undefined identifier
+USER\UART.C(27): error C202: 'TI': undefined identifier
+compiling delay.c...
+目标未创建
+Build target 'UART'
+assembling STARTUP.A51...
+compiling main.c...
+D:\KEIL4\0000\C51\INC\REG52.H(13): error C231: 'P0': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(14): error C231: 'P1': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(15): error C231: 'P2': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(16): error C231: 'P3': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(17): error C231: 'PSW': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(18): error C231: 'ACC': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(19): error C231: 'B': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(20): error C231: 'SP': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(21): error C231: 'DPL': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(22): error C231: 'DPH': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(23): error C231: 'PCON': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(24): error C231: 'TCON': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(25): error C231: 'TMOD': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(26): error C231: 'TL0': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(27): error C231: 'TL1': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(28): error C231: 'TH0': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(29): error C231: 'TH1': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(30): error C231: 'IE': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(31): error C231: 'IP': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(32): error C231: 'SCON': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(33): error C231: 'SBUF': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(45): error C231: 'CY': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(46): error C231: 'AC': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(47): error C231: 'F0': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(48): error C231: 'RS1': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(49): error C231: 'RS0': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(50): error C231: 'OV': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(51): error C231: 'P': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(54): error C231: 'TF1': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(55): error C231: 'TR1': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(56): error C231: 'TF0': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(57): error C231: 'TR0': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(58): error C231: 'IE1': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(59): error C231: 'IT1': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(60): error C231: 'IE0': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(61): error C231: 'IT0': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(64): error C231: 'EA': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(66): error C231: 'ES': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(67): error C231: 'ET1': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(68): error C231: 'EX1': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(69): error C231: 'ET0': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(70): error C231: 'EX0': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(74): error C231: 'PS': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(75): error C231: 'PT1': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(76): error C231: 'PX1': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(77): error C231: 'PT0': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(78): error C231: 'PX0': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(81): error C231: 'RD': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(82): error C231: 'WR': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(83): error C231: 'T1': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(84): error C231: 'T0': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(85): error C231: 'INT1': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(86): error C231: 'INT0': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(87): error C231: 'TXD': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(88): error C231: 'RXD': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(91): error C231: 'SM0': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(92): error C231: 'SM1': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(93): error C231: 'SM2': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(94): error C231: 'REN': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(95): error C231: 'TB8': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(96): error C231: 'RB8': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(97): error C231: 'TI': redefinition
+D:\KEIL4\0000\C51\INC\REG52.H(98): error C231: 'RI': redefinition
+compiling lcd.c...
+compiling uart.c...
+USER\UART.C(8): error C202: 'SCON': undefined identifier
+USER\UART.C(9): error C202: 'TMOD': undefined identifier
+USER\UART.C(10): error C202: 'PCON': undefined identifier
+USER\UART.C(11): error C202: 'TH1': undefined identifier
+USER\UART.C(12): error C202: 'TL1': undefined identifier
+USER\UART.C(13): error C202: 'ES': undefined identifier
+USER\UART.C(14): error C202: 'EA': undefined identifier
+USER\UART.C(15): error C202: 'TR1': undefined identifier
+USER\UART.C(23): error C202: 'SBUF': undefined identifier
+USER\UART.C(24): error C202: 'RI': undefined identifier
+USER\UART.C(25): error C202: 'SBUF': undefined identifier
+USER\UART.C(26): error C202: 'TI': undefined identifier
+USER\UART.C(27): error C202: 'TI': undefined identifier
+compiling delay.c...
+目标未创建
+Build target 'UART'
+assembling STARTUP.A51...
+compiling main.c...
+compiling lcd.c...
+compiling uart.c...
+USER\UART.C(8): error C202: 'SCON': undefined identifier
+USER\UART.C(9): error C202: 'TMOD': undefined identifier
+USER\UART.C(10): error C202: 'PCON': undefined identifier
+USER\UART.C(11): error C202: 'TH1': undefined identifier
+USER\UART.C(12): error C202: 'TL1': undefined identifier
+USER\UART.C(13): error C202: 'ES': undefined identifier
+USER\UART.C(14): error C202: 'EA': undefined identifier
+USER\UART.C(15): error C202: 'TR1': undefined identifier
+USER\UART.C(23): error C202: 'SBUF': undefined identifier
+USER\UART.C(24): error C202: 'RI': undefined identifier
+USER\UART.C(25): error C202: 'SBUF': undefined identifier
+USER\UART.C(26): error C202: 'TI': undefined identifier
+USER\UART.C(27): error C202: 'TI': undefined identifier
+compiling delay.c...
+目标未创建
+Build target 'UART'
+assembling STARTUP.A51...
+compiling main.c...
+compiling lcd.c...
+compiling uart.c...
+compiling delay.c...
+linking...
+Program Size: data=10.0 xdata=0 code=176
+creating hex file from ".\OBJ\UART"...
+".\OBJ\UART" - 0 Error(s), 0 Warning(s).
+Build target 'UART'
+assembling STARTUP.A51...
+compiling main.c...
+compiling lcd.c...
+compiling uart.c...
+USER\UART.C(8): error C202: 'SCON': undefined identifier
+USER\UART.C(9): error C202: 'TMOD': undefined identifier
+USER\UART.C(10): error C202: 'PCON': undefined identifier
+USER\UART.C(11): error C202: 'TH1': undefined identifier
+USER\UART.C(12): error C202: 'TL1': undefined identifier
+USER\UART.C(13): error C202: 'ES': undefined identifier
+USER\UART.C(14): error C202: 'EA': undefined identifier
+USER\UART.C(15): error C202: 'TR1': undefined identifier
+USER\UART.C(23): error C202: 'SBUF': undefined identifier
+USER\UART.C(24): error C202: 'RI': undefined identifier
+USER\UART.C(25): error C202: 'SBUF': undefined identifier
+USER\UART.C(26): error C202: 'TI': undefined identifier
+USER\UART.C(27): error C202: 'TI': undefined identifier
+compiling delay.c...
+目标未创建
+Build target 'UART'
+assembling STARTUP.A51...
+compiling main.c...
+compiling lcd.c...
+compiling uart.c...
+compiling delay.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?USARTCONFIGURATION?UART
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  USART_INIT
+    MODULE:  .\OBJ\main.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  USART_INIT
+    MODULE:  .\OBJ\main.obj (MAIN)
+    ADDRESS: 0004H
+Program Size: data=10.0 xdata=0 code=176
+creating hex file from ".\OBJ\UART"...
+".\OBJ\UART" - 0 Error(s), 3 Warning(s).
+Build target 'UART'
+assembling STARTUP.A51...
+compiling main.c...
+compiling lcd.c...
+compiling uart.c...
+compiling delay.c...
+linking...
+Program Size: data=10.0 xdata=0 code=170
+creating hex file from ".\OBJ\UART"...
+".\OBJ\UART" - 0 Error(s), 0 Warning(s).
+Build target 'UART'
+assembling STARTUP.A51...
+compiling main.c...
+compiling lcd.c...
+compiling uart.c...
+compiling delay.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?USART_INIT?UART
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  USARTCONFIGURATION
+    MODULE:  .\OBJ\main.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  USARTCONFIGURATION
+    MODULE:  .\OBJ\main.obj (MAIN)
+    ADDRESS: 0056H
+Program Size: data=10.0 xdata=0 code=170
+creating hex file from ".\OBJ\UART"...
+".\OBJ\UART" - 0 Error(s), 3 Warning(s).
+Build target 'UART'
+assembling STARTUP.A51...
+compiling main.c...
+compiling lcd.c...
+compiling uart.c...
+compiling delay.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?USART_INIT?UART
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  USARTCONFIGURATION
+    MODULE:  .\OBJ\main.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  USARTCONFIGURATION
+    MODULE:  .\OBJ\main.obj (MAIN)
+    ADDRESS: 0056H
+Program Size: data=10.0 xdata=0 code=170
+creating hex file from ".\OBJ\UART"...
+".\OBJ\UART" - 0 Error(s), 3 Warning(s).
+Build target 'UART'
+assembling STARTUP.A51...
+compiling main.c...
+compiling lcd.c...
+compiling uart.c...
+compiling delay.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?USART_INIT?UART
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  USARTCONFIGURATION
+    MODULE:  .\OBJ\main.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  USARTCONFIGURATION
+    MODULE:  .\OBJ\main.obj (MAIN)
+    ADDRESS: 0056H
+Program Size: data=10.0 xdata=0 code=170
+creating hex file from ".\OBJ\UART"...
+".\OBJ\UART" - 0 Error(s), 3 Warning(s).

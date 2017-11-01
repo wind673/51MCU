@@ -1,0 +1,59 @@
+C51 COMPILER V9.54   MAIN                                                                  04/11/2016 09:31:00 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\OBJ\main.obj
+COMPILER INVOKED BY: d:\Keil_v5\C51\BIN\C51.EXE USER\main.c WARNINGLEVEL(0) OPTIMIZE(8,SPEED) REGFILE(.\OBJ\EEPROM.ORC) 
+                    -BROWSE INCDIR(.\Head_File) DEBUG OBJECTEXTEND PRINT(.\main.lst) OBJECT(.\OBJ\main.obj)
+
+line level    source
+
+   1          #include "main.h"
+   2          #define EEPROM_DATA "Data:Hello!!"
+   3          //全局变量区
+   4          extern unsigned char receiveData;//usart received datas
+   5          
+   6          
+   7          
+   8          
+   9          
+  10          //主函数区
+  11          int main()
+  12          {
+  13   1              unsigned char *str=NULL;
+  14   1              lcd_init();
+  15   1              
+  16   1              lcd_posi(1,1);
+  17   1              lcd_str("Loading..."); 
+  18   1              EEP_Wstr(0x00,EEPROM_DATA);
+  19   1              while(1)
+  20   1              {
+  21   2                
+  22   2                      EEP_Rstr(0x00,str);
+  23   2                        
+  24   2                      lcd_posi(2,1);
+  25   2                      lcd_str(str);
+  26   2                      
+  27   2                      lcd_posi(1,1);
+  28   2                      lcd_str("JUST OK!!!");
+  29   2              
+  30   2              
+  31   2              }
+  32   1      }
+  33          
+  34          
+  35          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     84    ----
+   CONSTANT SIZE    =     35    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       3
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

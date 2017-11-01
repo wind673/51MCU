@@ -1,0 +1,63 @@
+C51 COMPILER V9.01   INF_FUN                                                               03/29/2015 16:27:00 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE INF_FUN
+OBJECT MODULE PLACED IN inf_fun.OBJ
+COMPILER INVOKED BY: D:\keil4\0000\C51\BIN\C51.EXE inf_fun.c LARGE ROM(COMPACT) BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          uchar inf_dat[4]={0};
+*** ERROR C129 IN LINE 1 OF INF_FUN.C: missing ';' before 'inf_dat'
+   2          uchar inf_sure=0;
+   3          uchar fcmode=1;
+   4          uchar fcmove=1;
+   5          uchar fcvol=0;
+   6          uchar fcstar=0;
+   7          uchar inf_sw=1; 
+   8          uchar inf_t=1;
+   9          
+  10          
+  11          
+  12          void inf_switch()
+  13          {
+  14              
+  15             if(inf_sure==0xa2&&inf_t>1)//防止多次重写，每两次屏蔽一次
+  16             {
+  17             if(inf_sw==0) inf_sw=2;
+  18             if(inf_sw==1) inf_sw=0;
+  19             inf_t=0;
+  20             }
+  21             //功能区
+  22             inf_t++;
+  23             if(inf_sw==0) {wdir(0x08);}
+  24             if(inf_sw==2){ wdir(0x0c); inf_sw=1;}
+  25             delay500ms();
+  26          }
+  27          
+  28          void inf_mode()
+  29          {
+  30              
+  31             if(inf_sure==0x62&&inf_t>1)//防止多次重写，每两次屏蔽一次
+  32             {
+  33             if(inf_sw==0) inf_sw=2;
+  34             if(inf_sw==1) inf_sw=0;
+  35             inf_t=0;
+  36             }
+  37             inf_t++;
+  38             //功能区,以后会有更多的模式
+  39             if(inf_sw==1){fcmode++;}
+  40             if(inf_sw==2){fcmode++;inf_sw=1;}
+  41             delay200ms();
+  42             if(fcmode==3) fcmode=1;
+  43          }
+  44          
+  45          void inf_function()
+  46          {
+  47                  if(inf_sure==0xa2) inf_switch();
+  48              if(inf_sure==0x62) inf_mode();
+  49                  
+  50          
+  51          }
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  1 ERROR(S)

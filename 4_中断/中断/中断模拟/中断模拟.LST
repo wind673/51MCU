@@ -1,0 +1,289 @@
+C51 COMPILER V9.54   ________                                                              03/07/2016 20:32:33 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE ________
+OBJECT MODULE PLACED IN 中断模拟.OBJ
+COMPILER INVOKED BY: d:\Keil_v5\C51\BIN\C51.EXE 中断模拟.c LARGE OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<reg51.h>
+   2          #define uint unsigned int
+   3          #define uchar unsigned char
+   4          unsigned char code nnum[10]={0x3f,0x06,0x5b,0x4f,0x66,
+   5                                       0x6d,0x7d,0x07,0x7f,0x6f};
+   6          unsigned char code pnum[10]={0xc0,0xf9,0xa4,0xb0,0x99,
+   7                                       0x92,0x82,0xf8,0x80,0x90};
+   8          sbit iterr=P3^2;                                                 
+   9          sbit voice=P1^4;
+  10          sbit LSA=P1^5;
+  11          sbit LSB=P1^6;
+  12          sbit LSC=P1^7;
+  13          sbit key1=P2^1;
+  14          sbit key2=P2^0;
+  15          sbit key5=P2^2;
+  16          sbit key7=P2^7;
+  17          sbit spot=P0^7;
+  18          void music(unsigned char h);
+  19          void ddisplay(unsigned int ddi,unsigned int i);
+  20          void sdisplay(unsigned int sdi);
+  21          void interrupts();
+  22          void key();
+  23          char sw=0;
+  24          char reset=0;
+  25          uint time=0;
+  26          
+  27          void main()
+  28          {
+  29   1         
+  30   1              
+  31   1              
+  32   1          uint tms=0,ts=0,tm=0,th=0,td=0;//此处tms为100ms
+  33   1              uint dtms=0,dts1=0,dtm1=0,dth1=0,dtd1=0;//低位
+  34   1              uint dts2=0,dtm2=0,dth2=0,dtd2=0;//高位
+  35   1              uint di[8],i;
+  36   1              interrupts();
+  37   1      while(1)
+  38   1      {
+  39   2           
+  40   2              // key();
+  41   2               if(reset==1)//复位
+  42   2               {
+  43   3               reset=0;
+  44   3               tms=0,ts=0,tm=0,th=0,td=0;//复位时间
+  45   3               di[1]=0;di[0]=0;//复位显示
+  46   3               di[3]=0;di[2]=0;
+  47   3               di[5]=0;di[4]=0;
+  48   3               di[7]=0;di[6]=0;dtms=0;
+  49   3               }
+  50   2               //时间模拟
+  51   2               if(sw==1)
+  52   2               {
+  53   3               tms++;
+  54   3               if(tms==5) ts++,tms=0;
+  55   3               if(ts==60) tm++,ts=0;
+C51 COMPILER V9.54   ________                                                              03/07/2016 20:32:33 PAGE 2   
+
+  56   3               if(tm==60) th++,tm=0;
+  57   3               if(th==24) td++,th=0;
+  58   3               }
+  59   2               //数据处理
+  60   2               /*低位处理*/
+  61   2               dts1=ts%10;
+  62   2               dtm1=tm%10;
+  63   2               dth1=th%10;
+  64   2               dtd1=td%10;
+  65   2               /*高位处理*/
+  66   2               dts2=ts/10;
+  67   2               dtm2=tm/10;
+  68   2               dth2=th/10;
+  69   2               dtd2=td/10;
+  70   2               dtms=tms/20;
+  71   2              //数据传递 
+  72   2               di[1]=dtd1;di[0]=dtd2;
+  73   2               di[3]=dth1;di[2]=dth2;
+  74   2               di[5]=dtm1;di[4]=dtm2;
+  75   2               di[7]=dts1;di[6]=dts2;  
+  76   2              //显示输出
+  77   2              for(i=0;i<8;i++)//动态  
+  78   2              ddisplay(di[i],i);
+  79   2              
+  80   2      }
+  81   1      }    
+  82                  
+  83                  
+  84          void interrupts()
+  85          {
+  86   1       TMOD=0X01;
+  87   1       TH0=(65536-50000)/256;
+  88   1       TL0=(65536-50000)%256;//11.915Mhz的粗略50ms
+  89   1       IT0=1;
+  90   1       EX0=1;
+  91   1       ET0=1;
+  92   1       EA=1;
+  93   1       TR0=1;
+  94   1       
+  95   1      }
+  96          
+  97          void interrupt0()interrupt 0
+  98          {
+  99   1        uint i;
+ 100   1        while(iterr==0)
+ 101   1        for(i=0;i<8;i++)
+ 102   1          {
+ 103   2              
+ 104   2              switch(i)        //位选，选择点亮的数码管，
+ 105   2                      {
+ 106   3                              case(0):
+ 107   3                                      LSA=0;LSB=0;LSC=0; break;//显示第0位
+ 108   3                              case(1):
+ 109   3                                      LSA=1;LSB=0;LSC=0; break;//显示第1位
+ 110   3                              case(2):
+ 111   3                                      LSA=0;LSB=1;LSC=0; break;//显示第2位
+ 112   3                              case(3):
+ 113   3                                      LSA=1;LSB=1;LSC=0; break;//显示第3位
+ 114   3                              case(4):
+ 115   3                                      LSA=0;LSB=0;LSC=1; break;//显示第4位
+ 116   3                              case(5):
+ 117   3                                      LSA=1;LSB=0;LSC=1; break;//显示第5位
+C51 COMPILER V9.54   ________                                                              03/07/2016 20:32:33 PAGE 3   
+
+ 118   3                              case(6):
+ 119   3                                      LSA=0;LSB=1;LSC=1; break;//显示第6位
+ 120   3                              case(7):
+ 121   3                                      LSA=1;LSB=1;LSC=1; break;//显示第7位    
+ 122   3                                      
+ 123   3                      }
+ 124   2                      P0=0XFF;
+ 125   2                }
+ 126   1        
+ 127   1        sw=0;
+ 128   1        reset=1;
+ 129   1      }
+ 130          
+ 131          void wdog()interrupt 1//自制看门狗
+ 132          {
+ 133   1        time++;
+ 134   1        if(time>120)
+ 135   1        { 
+ 136   2          sw=0;
+ 137   2          reset=1;
+ 138   2              time=0;
+ 139   2        }
+ 140   1        TH0=(65536-50000)/256;
+ 141   1        TL0=(65536-50000)%256;
+ 142   1      }
+ 143          
+ 144          
+ 145          
+ 146          void ddisplay(unsigned int ddi,unsigned int i)//动态显示dynamic
+ 147          {
+ 148   1      
+ 149   1              unsigned int j;
+ 150   1              
+ 151   1              
+ 152   1                      switch(i)        //位选，选择点亮的数码管，
+ 153   1                      {
+ 154   2                              case(0):
+ 155   2                                      LSA=0;LSB=0;LSC=0; break;//显示第0位
+ 156   2                              case(1):
+ 157   2                                      LSA=1;LSB=0;LSC=0; break;//显示第1位
+ 158   2                              case(2):
+ 159   2                                      LSA=0;LSB=1;LSC=0; break;//显示第2位
+ 160   2                              case(3):
+ 161   2                                      LSA=1;LSB=1;LSC=0; break;//显示第3位
+ 162   2                              case(4):
+ 163   2                                      LSA=0;LSB=0;LSC=1; break;//显示第4位
+ 164   2                              case(5):
+ 165   2                                      LSA=1;LSB=0;LSC=1; break;//显示第5位
+ 166   2                              case(6):
+ 167   2                                      LSA=0;LSB=1;LSC=1; break;//显示第6位
+ 168   2                              case(7):
+ 169   2                                      LSA=1;LSB=1;LSC=1; break;//显示第7位    
+ 170   2                      }
+ 171   1              
+ 172   1                      if((i==1||i==3||i==5||i==7)||(ddi!=0))
+ 173   1                      {
+ 174   2                      P0=nnum[ddi];//发送段码
+ 175   2                      }
+ 176   1                      if(i==1||i==3||i==5||i==7)
+ 177   1                      spot=1;
+ 178   1                      j=100;                                           //扫描间隔时间设定
+ 179   1                      while(j--);     
+C51 COMPILER V9.54   ________                                                              03/07/2016 20:32:33 PAGE 4   
+
+ 180   1                      P0=0x00;//消隐
+ 181   1              
+ 182   1      
+ 183   1      }
+ 184          void key()//按键
+ 185          {
+ 186   1         uint re,mu,mus;
+ 187   1      //复位
+ 188   1         if(key5==0)
+ 189   1         {
+ 190   2         re=100;
+ 191   2         while(re--);
+ 192   2          if(key5==0)
+ 193   2          {
+ 194   3              sw=0;
+ 195   3          reset=1;
+ 196   3              for(mus=0;mus<2;mus++)
+ 197   3              for(mu=7+mus;mu<9+mus;mu++)     
+ 198   3              music(mu); 
+ 199   3        
+ 200   3          }
+ 201   2        
+ 202   2         }
+ 203   1      //开始 
+ 204   1         if(sw==0)
+ 205   1         if(key1==0)
+ 206   1         {  
+ 207   2             re=100;
+ 208   2             while(re--);
+ 209   2                 
+ 210   2             if(key1==0)
+ 211   2                 {
+ 212   3                 music(4);
+ 213   3                 music(5);
+ 214   3                 sw=1;
+ 215   3                  
+ 216   3                 }
+ 217   2         }
+ 218   1       
+ 219   1      //结束
+ 220   1         if(sw==1)
+ 221   1         if(key2==0)
+ 222   1         {  
+ 223   2             re=100;
+ 224   2             while(re--);
+ 225   2             if(key2==0)
+ 226   2                 {
+ 227   3                 sw=0;
+ 228   3                 music(6);
+ 229   3                 music(7);
+ 230   3                 music(6);
+ 231   3                
+ 232   3                 }
+ 233   2         }
+ 234   1         
+ 235   1         if(key7==0)
+ 236   1         {
+ 237   2          re=100;
+ 238   2          while(re--);
+ 239   2          time=0;
+ 240   2         }
+ 241   1      }
+C51 COMPILER V9.54   ________                                                              03/07/2016 20:32:33 PAGE 5   
+
+ 242                  
+ 243          
+ 244          
+ 245          void music(unsigned char h)
+ 246           {
+ 247   1       int mu,del;
+ 248   1       for(mu=0;mu<80;mu++)
+ 249   1         {
+ 250   2         del=35*h;
+ 251   2          while(del--);
+ 252   2         voice=0;
+ 253   2          del=4*h;
+ 254   2          while(del--);
+ 255   2         voice=1; 
+ 256   2         }  
+ 257   1       }
+ 258          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   1466    ----
+   CONSTANT SIZE    =     20    ----
+   XDATA SIZE       =      4      54
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

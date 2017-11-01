@@ -1,0 +1,193 @@
+C51 COMPILER V9.01   横向滑禵                                                              03/29/2015 21:15:41 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE 横向滑禵
+OBJECT MODULE PLACED IN 横向滑动.OBJ
+COMPILER INVOKED BY: D:\keil4\0000\C51\BIN\C51.EXE 横向滑动.c LARGE BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<reg51.h>
+   2          #define uint unsigned int
+   3          #define uchar unsigned char
+   4          
+   5          
+   6          unsigned char code kong0[32]={0};//首尾相同，以达到连续滑动的效果
+   7          //先左右翻转，再旋转90° 或者 横向字需要旋转90°再上下翻转
+   8          unsigned char code landxie[32]={0x02,0x00,0x42,0x00,0x33,0xFC,0x00,0x08,0x00,0x54,0x3F,0xC8,0x6A,0x52,0xAA
+             -,0x61,
+   9          0x3F,0xFE,0x01,0x00,0x08,0xC2,0x08,0x01,0xFF,0xFE,0x08,0x00,0x08,0x00,0x00,0x00};
+  10          //横向Landscape          纵向Portrait   
+  11          unsigned char code landyu[32]={0x00,0x02,0x40,0x02,0x41,0x02,0x41,0x02,0x41,0x02,0x41,0x02,0x41,0x02,0x7F,
+             -0xFE,
+  12          0x41,0x02,0x41,0x02,0x41,0x22,0x41,0x1A,0x41,0x02,0x40,0x02,0x00,0x02,0x00,0x00};
+  13          
+  14          unsigned char code landshen[32]={0x00,0x80,0x01,0x00,0x06,0x00,0x1F,0xFF,0xE0,0x00,0x1F,0xF8,0x11,0x10,0x1
+             -1,0x10,
+  15          0x11,0x10,0xFF,0xFF,0x11,0x10,0x11,0x10,0x11,0x10,0x1F,0xF8,0x00,0x00,0x00,0x00};
+  16          
+  17          
+  18          unsigned char code kong1[32]={0};
+  19          
+  20          unsigned char code hang[16][2]={{0x80,0x00},{0x40,0x00},{0x20,0x00},{0x10,0x00},{0x08,0x00},{0x04,0x00},{0
+             -x02,0x00},{0x01,0x00},
+  21                                                                     {0x00,0x80},{0x00,0x40},{0x00,0x20},{0x00,0x10},{0x00,0x08},{0x00,0x04},{0x00,0x02},{0x00,0x01}}
+             -;
+  22                                                                   //{高位(上面的),低位(下面的)}
+  23          
+  24          unsigned char code *st[]={landxie,landyu,landshen,kong0};
+  25          
+  26          
+  27          
+  28          sbit sck=P3^6;
+  29          sbit lck=P3^5;
+  30          sbit sdi=P3^4;
+  31          
+  32          
+  33          void send(int dat0,int dat1,int dat2,int dat3);
+  34          void rightch();
+  35          void leftch();
+  36          
+  37          
+  38          void main()
+  39          {
+  40   1      
+  41   1        while(1)
+  42   1        {
+  43   2        
+  44   2         
+  45   2         rightch(); 
+  46   2         leftch();
+  47   2        }
+  48   1      }
+  49          
+  50          
+C51 COMPILER V9.01   横向滑禵                                                              03/29/2015 21:15:41 PAGE 2   
+
+  51          void rightch()
+  52          {
+  53   1        char i,k,n,w=1;
+  54   1        while(w>=0)
+  55   1        {
+  56   2              for(k=15;k>=0;k--)//移屏
+  57   2              {
+  58   3                n=3;
+  59   3                if(w==0&&k==0 ) n=10;
+  60   3                
+  61   3                while(n--)//反复 刷几次，就可以减慢速度
+  62   3                {
+  63   4             for(i=0;i<16;i++)//刷屏
+  64   4                 {
+  65   5                  send(~hang[i][1],~hang[i][0],st[w][(i+k)*2+1],st[w][(i+k)*2]);
+  66   5                 }
+  67   4                }
+  68   3              } 
+  69   2         w--;
+  70   2        }
+  71   1      
+  72   1      }
+  73          
+  74          void leftch()
+  75          {
+  76   1        char i,k,n,w=0;
+  77   1        while(w<=1)
+  78   1        {
+  79   2              for(k=0;k<16;k++)//移屏
+  80   2              {
+  81   3                n=3;
+  82   3                if(w==1&&k==15) n=10;
+  83   3                while(n--)//反复 刷几次，就可以减慢速度
+  84   3                {
+  85   4             for(i=0;i<16;i++)//刷屏
+  86   4                 {
+  87   5                  send(~hang[i][1],~hang[i][0],st[w][(i+k)*2+1],st[w][(i+k)*2]);
+  88   5                 }
+  89   4                }
+  90   3              } 
+  91   2         w++;
+  92   2        }
+  93   1      
+  94   1      }
+  95          
+  96          
+  97          
+  98          
+  99          
+ 100          
+ 101          
+ 102          void send(int dat0,int dat1,int dat2,int dat3)
+ 103          {
+ 104   1      
+ 105   1        unsigned char i;
+ 106   1        sck=1;//上升沿 移位
+ 107   1        lck=1;//上升沿 输出
+ 108   1        //第一段数据
+ 109   1        for(i=0;i<8;i++)
+ 110   1        {
+ 111   2          sck=0;
+ 112   2              sdi=dat0&0x01;
+C51 COMPILER V9.01   横向滑禵                                                              03/29/2015 21:15:41 PAGE 3   
+
+ 113   2              dat0>>=1;
+ 114   2              
+ 115   2              sck=1;  
+ 116   2        
+ 117   2        }
+ 118   1       
+ 119   1        //第二段数据
+ 120   1        for(i=0;i<8;i++)
+ 121   1        {
+ 122   2          sck=0;
+ 123   2              sdi=dat1&0x01;
+ 124   2              dat1>>=1;
+ 125   2               
+ 126   2              sck=1;  
+ 127   2      
+ 128   2        }
+ 129   1         
+ 130   1         //第三段数据
+ 131   1        for(i=0;i<8;i++)
+ 132   1        { 
+ 133   2          sck=0;
+ 134   2          sdi=dat2&0x01;
+ 135   2              dat2>>=1;
+ 136   2         
+ 137   2              sck=1;  
+ 138   2      
+ 139   2        }
+ 140   1           
+ 141   1         //第四段数据
+ 142   1        for(i=0;i<8;i++)
+ 143   1        {
+ 144   2          sck=0;
+ 145   2              sdi=dat3&0x01;
+ 146   2              dat3>>=1;
+ 147   2              
+ 148   2              sck=1;  
+ 149   2        }
+ 150   1      
+ 151   1        //并口输出
+ 152   1         lck=0;
+ 153   1         lck=1;
+ 154   1          
+ 155   1      
+ 156   1      }
+ 157          
+ 158          
+ 159          
+ 160          
+ 161          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    866    ----
+   CONSTANT SIZE    =    192    ----
+   XDATA SIZE       =      8      16
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

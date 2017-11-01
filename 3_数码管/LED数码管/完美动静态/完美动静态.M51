@@ -1,0 +1,317 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        03/15/2015  15:37:06  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\KEIL4\0000\C51\BIN\BL51.EXE STARTUP.obj, 完美动静态.obj TO 完美动静态
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  STARTUP.obj (?C_STARTUP)
+  完美动静态.obj (完美禵静态)
+  D:\KEIL4\0000\C51\LIB\C51S.LIB (?C_INIT)
+  D:\KEIL4\0000\C51\LIB\C51S.LIB (?C?UIDIV)
+
+
+LINK MAP OF MODULE:  完美动静态 (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0034H     UNIT         _DATA_GROUP_
+            DATA    003CH     0002H     UNIT         ?DT?完美禵静态
+            IDATA   003EH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     01C3H     UNIT         ?PR?MAIN?完美禵静态
+            CODE    09C3H     00BCH     UNIT         ?PR?KEY?完美禵静态
+            CODE    0A7FH     00ACH     UNIT         ?PR?_DDISPLAY?完美禵静态
+            CODE    0B2BH     008CH     UNIT         ?C_C51STARTUP
+            CODE    0BB7H     0055H     UNIT         ?C?LIB_CODE
+            CODE    0C0CH     0039H     UNIT         ?PR?_MUSIC?完美禵静态
+            CODE    0C45H     0014H     UNIT         ?CO?完美禵静态
+            CODE    0C59H     0007H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   完美动静态 (?C_STARTUP)
+
+
+SEGMENT                            DATA_GROUP 
+  +--> CALLED SEGMENT            START    LENGTH
+------------------------------------------------
+?C_C51STARTUP                    -----    -----
+  +--> ?PR?MAIN?完美禵静态
+  +--> ?C_INITSEG
+
+?PR?MAIN?完美禵静态              0008H    002EH
+  +--> ?PR?KEY?完美禵静态
+  +--> ?PR?_DDISPLAY?完美禵静态
+
+?PR?KEY?完美禵静态               0036H    0006H
+  +--> ?PR?_MUSIC?完美禵静态
+
+?PR?_DDISPLAY?完美禵静态         0036H    0002H
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/15/2015  15:37:06  PAGE 2
+
+
+  +--> ?CO?完美禵静态
+
+
+
+SYMBOL TABLE OF MODULE:  完美动静态 (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:0B2BH         SEGMENT       ?C_C51STARTUP
+  I:003EH         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:0B2EH         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:0B2BH         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:0B2BH         LINE#         133
+  C:0B2DH         LINE#         134
+  C:0B2EH         LINE#         135
+  C:0B2FH         LINE#         136
+  C:0B31H         LINE#         185
+  C:0B34H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        完美禵静态
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  B:00A0H.2       PUBLIC        key8
+  B:0090H.4       PUBLIC        voice
+  C:0C0CH         PUBLIC        _music
+  D:003CH         PUBLIC        reset
+  C:0800H         PUBLIC        main
+  C:0C45H         PUBLIC        nnum
+  C:0C4FH         PUBLIC        pnum
+  B:0080H.7       PUBLIC        spot
+  C:09C3H         PUBLIC        key
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/15/2015  15:37:06  PAGE 3
+
+
+  C:0A7FH         PUBLIC        _ddisplay
+  B:0090H.5       PUBLIC        LSA
+  B:0090H.6       PUBLIC        LSB
+  B:0090H.7       PUBLIC        LSC
+  D:003DH         PUBLIC        sw
+  B:00A0H.1       PUBLIC        key1
+  B:00A0H.0       PUBLIC        key2
+  -------         PROC          MAIN
+  -------         DO            
+  D:0008H         SYMBOL        tms
+  D:000AH         SYMBOL        ts
+  D:000CH         SYMBOL        tm
+  D:000EH         SYMBOL        th
+  D:0010H         SYMBOL        td
+  D:0012H         SYMBOL        dtms
+  D:0014H         SYMBOL        dts1
+  D:0016H         SYMBOL        dtm1
+  D:0018H         SYMBOL        dth1
+  D:001AH         SYMBOL        dtd1
+  D:001CH         SYMBOL        dts2
+  D:001EH         SYMBOL        dtm2
+  D:0020H         SYMBOL        dth2
+  D:0022H         SYMBOL        dtd2
+  D:0024H         SYMBOL        di
+  D:0034H         SYMBOL        i
+  -------         ENDDO         
+  C:0800H         LINE#         23
+  C:0800H         LINE#         24
+  C:0800H         LINE#         26
+  C:0815H         LINE#         27
+  C:0829H         LINE#         28
+  C:0839H         LINE#         30
+  C:0839H         LINE#         31
+  C:0839H         LINE#         33
+  C:083CH         LINE#         34
+  C:0842H         LINE#         35
+  C:0842H         LINE#         36
+  C:0844H         LINE#         37
+  C:0858H         LINE#         38
+  C:0860H         LINE#         39
+  C:0868H         LINE#         40
+  C:0870H         LINE#         41
+  C:087CH         LINE#         42
+  C:087CH         LINE#         44
+  C:0882H         LINE#         45
+  C:0882H         LINE#         46
+  C:088AH         LINE#         47
+  C:089DH         LINE#         48
+  C:08B2H         LINE#         49
+  C:08C7H         LINE#         50
+  C:08DCH         LINE#         51
+  C:08DCH         LINE#         54
+  C:08EBH         LINE#         55
+  C:08FAH         LINE#         56
+  C:0909H         LINE#         57
+  C:0918H         LINE#         59
+  C:0927H         LINE#         60
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/15/2015  15:37:06  PAGE 4
+
+
+  C:0936H         LINE#         61
+  C:0945H         LINE#         62
+  C:0954H         LINE#         63
+  C:0963H         LINE#         65
+  C:096FH         LINE#         66
+  C:097BH         LINE#         67
+  C:0987H         LINE#         68
+  C:0993H         LINE#         70
+  C:09A6H         LINE#         71
+  -------         ENDPROC       MAIN
+  -------         PROC          _DDISPLAY
+  D:0036H         SYMBOL        ddi
+  D:0004H         SYMBOL        i
+  -------         DO            
+  D:0006H         SYMBOL        j
+  -------         ENDDO         
+  C:0A7FH         LINE#         77
+  C:0A83H         LINE#         78
+  C:0A83H         LINE#         83
+  C:0AABH         LINE#         84
+  C:0AABH         LINE#         85
+  C:0AABH         LINE#         86
+  C:0AAFH         LINE#         87
+  C:0AAFH         LINE#         88
+  C:0AB7H         LINE#         89
+  C:0AB7H         LINE#         90
+  C:0ABBH         LINE#         91
+  C:0ABBH         LINE#         92
+  C:0AC3H         LINE#         93
+  C:0AC3H         LINE#         94
+  C:0AC7H         LINE#         95
+  C:0AC7H         LINE#         96
+  C:0ACFH         LINE#         97
+  C:0ACFH         LINE#         98
+  C:0AD3H         LINE#         99
+  C:0AD3H         LINE#         100
+  C:0AD9H         LINE#         101
+  C:0AD9H         LINE#         103
+  C:0AF7H         LINE#         104
+  C:0AF7H         LINE#         105
+  C:0AFFH         LINE#         106
+  C:0AFFH         LINE#         107
+  C:0B17H         LINE#         108
+  C:0B19H         LINE#         109
+  C:0B1DH         LINE#         110
+  C:0B27H         LINE#         111
+  C:0B2AH         LINE#         114
+  -------         ENDPROC       _DDISPLAY
+  -------         PROC          KEY
+  -------         DO            
+  D:0036H         SYMBOL        re
+  D:0038H         SYMBOL        mu
+  D:003AH         SYMBOL        mus
+  -------         ENDDO         
+  C:09C3H         LINE#         115
+  C:09C3H         LINE#         116
+  C:09C3H         LINE#         119
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/15/2015  15:37:06  PAGE 5
+
+
+  C:09C6H         LINE#         120
+  C:09C6H         LINE#         121
+  C:09CCH         LINE#         122
+  C:09D9H         LINE#         123
+  C:09DCH         LINE#         124
+  C:09DCH         LINE#         125
+  C:09DFH         LINE#         126
+  C:09E2H         LINE#         127
+  C:09E6H         LINE#         128
+  C:0A03H         LINE#         129
+  C:0A23H         LINE#         131
+  C:0A23H         LINE#         133
+  C:0A23H         LINE#         135
+  C:0A27H         LINE#         136
+  C:0A2AH         LINE#         137
+  C:0A2AH         LINE#         138
+  C:0A30H         LINE#         139
+  C:0A3DH         LINE#         141
+  C:0A40H         LINE#         142
+  C:0A40H         LINE#         143
+  C:0A45H         LINE#         144
+  C:0A4AH         LINE#         145
+  C:0A4DH         LINE#         147
+  C:0A4DH         LINE#         148
+  C:0A4DH         LINE#         151
+  C:0A53H         LINE#         152
+  C:0A56H         LINE#         153
+  C:0A56H         LINE#         154
+  C:0A5CH         LINE#         155
+  C:0A69H         LINE#         156
+  C:0A6CH         LINE#         157
+  C:0A6CH         LINE#         158
+  C:0A6FH         LINE#         159
+  C:0A74H         LINE#         160
+  C:0A79H         LINE#         161
+  C:0A7EH         LINE#         163
+  C:0A7EH         LINE#         164
+  C:0A7EH         LINE#         168
+  -------         ENDPROC       KEY
+  -------         PROC          _MUSIC
+  D:0001H         SYMBOL        h
+  -------         DO            
+  D:0004H         SYMBOL        mu
+  D:0006H         SYMBOL        del
+  -------         ENDDO         
+  C:0C0CH         LINE#         172
+  C:0C0EH         LINE#         173
+  C:0C0EH         LINE#         175
+  C:0C11H         LINE#         176
+  C:0C11H         LINE#         177
+  C:0C19H         LINE#         178
+  C:0C23H         LINE#         179
+  C:0C25H         LINE#         180
+  C:0C2DH         LINE#         181
+  C:0C37H         LINE#         182
+  C:0C39H         LINE#         183
+  C:0C44H         LINE#         184
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/15/2015  15:37:06  PAGE 6
+
+
+  -------         ENDPROC       _MUSIC
+  -------         ENDMOD        完美禵静态
+
+  -------         MODULE        ?C?UIDIV
+  C:0BB7H         PUBLIC        ?C?UIDIV
+  -------         ENDMOD        ?C?UIDIV
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 038DH BYTE (44%) *
+******************************************************************************
+
+Program Size: data=63.0 xdata=0 code=1123
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

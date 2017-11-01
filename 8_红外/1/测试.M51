@@ -1,0 +1,280 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        03/22/2015  17:52:38  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\KEIL4\0000\C51\BIN\BL51.EXE STARTUP.obj, ฒโสิ.obj, com.obj TO ฒโสิ
+
+
+MEMORY MODEL: LARGE
+
+
+INPUT MODULES INCLUDED:
+  STARTUP.obj (?C_STARTUP)
+  ฒโสิ.obj (ฒ_สิ)
+  com.obj (COM)
+
+
+LINK MAP OF MODULE:  ฒโสิ (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *  X D A T A   M E M O R Y  * * * * * * *
+            XDATA   0000H     000AH     UNIT         _XDATA_GROUP_
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0003H     ABSOLUTE     
+                    0006H     07FAH                  *** GAP ***
+            CODE    0800H     0089H     UNIT         ?PR?INFRARED?ฒ_สิ
+            CODE    0889H     000CH     UNIT         ?C_C51STARTUP
+            CODE    0895H     0009H     UNIT         ?PR?DELAY6MS?ฒ_สิ
+            CODE    089EH     0009H     UNIT         ?PR?DELAY1MS?ฒ_สิ
+            CODE    08A7H     0009H     UNIT         ?PR?DELAY500US?ฒ_สิ
+            CODE    08B0H     0009H     UNIT         ?PR?DELAY6MS?COM
+            CODE    08B9H     0009H     UNIT         ?PR?DELAY1MS?COM
+            CODE    08C2H     0009H     UNIT         ?PR?DELAY500US?COM
+            CODE    08CBH     0007H     UNIT         ?PR?INTER_INIT?ฒ_สิ
+            CODE    08D2H     0001H     UNIT         ?PR?MAIN?ฒ_สิ
+
+
+
+OVERLAY MAP OF MODULE:   ฒโสิ (?C_STARTUP)
+
+
+SEGMENT                          XDATA_GROUP
+  +--> CALLED SEGMENT          START    LENGTH
+----------------------------------------------
+?C_C51STARTUP                  -----    -----
+  +--> ?PR?MAIN?ฒ_สิ
+
+*** NEW ROOT ***************************************************
+
+?PR?INFRARED?ฒ_สิ              0000H    000AH
+  +--> ?PR?DELAY6MS?ฒ_สิ
+
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/22/2015  17:52:38  PAGE 2
+
+
+
+IGNORED SYMBOLS:
+   DELAY1MS
+   DELAY500US
+   DELAY6MS
+
+
+
+SYMBOL TABLE OF MODULE:  ฒโสิ (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:0889H         SEGMENT       ?C_C51STARTUP
+  I:0008H         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:088CH         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:0889H         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:0889H         LINE#         133
+  C:088BH         LINE#         134
+  C:088CH         LINE#         135
+  C:088DH         LINE#         136
+  C:088FH         LINE#         185
+  C:0892H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        ฒ_สิ
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00B0H         PUBLIC        P3
+  B:00A8H.7       PUBLIC        EA
+  C:08A7H         PUBLIC        delay500us
+  C:089EH         PUBLIC        delay1ms
+  C:08D2H         PUBLIC        main
+  C:0895H         PUBLIC        delay6ms
+  C:08CBH         PUBLIC        inter_init
+  B:00B0H.2       PUBLIC        inf
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/22/2015  17:52:38  PAGE 3
+
+
+  B:00A8H.0       PUBLIC        EX0
+  B:0088H.0       PUBLIC        IT0
+  C:0800H         PUBLIC        infrared
+  -------         PROC          INTER_INIT
+  C:08CBH         LINE#         22
+  C:08CBH         LINE#         23
+  C:08CBH         LINE#         24
+  C:08CDH         LINE#         25
+  C:08CFH         LINE#         26
+  C:08D1H         LINE#         28
+  -------         ENDPROC       INTER_INIT
+  -------         PROC          INFRARED
+  -------         DO            
+  X:0000H         SYMBOL        AGC
+  X:0001H         SYMBOL        STA
+  X:0002H         SYMBOL        i
+  X:0004H         SYMBOL        j
+  X:0006H         SYMBOL        k
+  X:0008H         SYMBOL        a
+  -------         ENDDO         
+  C:0800H         LINE#         30
+  C:081DH         LINE#         32
+  C:0824H         LINE#         33
+  C:082AH         LINE#         34
+  C:082DH         LINE#         35
+  C:0836H         LINE#         36
+  C:0839H         LINE#         37
+  C:0842H         LINE#         38
+  C:084EH         LINE#         39
+  C:084EH         LINE#         40
+  C:086EH         LINE#         41
+  C:086EH         LINE#         44
+  C:086EH         LINE#         47
+  -------         ENDPROC       INFRARED
+  -------         PROC          DELAY6MS
+  -------         DO            
+  D:0006H         SYMBOL        a
+  D:0007H         SYMBOL        b
+  -------         ENDDO         
+  C:0895H         LINE#         50
+  C:0895H         LINE#         51
+  C:0895H         LINE#         53
+  C:0897H         LINE#         54
+  C:089DH         LINE#         55
+  -------         ENDPROC       DELAY6MS
+  -------         PROC          DELAY1MS
+  -------         DO            
+  D:0006H         SYMBOL        a
+  D:0007H         SYMBOL        b
+  -------         ENDDO         
+  C:089EH         LINE#         60
+  C:089EH         LINE#         61
+  C:089EH         LINE#         63
+  C:08A0H         LINE#         64
+  C:08A6H         LINE#         65
+  -------         ENDPROC       DELAY1MS
+  -------         PROC          DELAY500US
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/22/2015  17:52:38  PAGE 4
+
+
+  -------         DO            
+  D:0006H         SYMBOL        a
+  D:0007H         SYMBOL        b
+  -------         ENDDO         
+  C:08A7H         LINE#         68
+  C:08A7H         LINE#         69
+  C:08A7H         LINE#         71
+  C:08A9H         LINE#         72
+  C:08AFH         LINE#         73
+  -------         ENDPROC       DELAY500US
+  -------         PROC          MAIN
+  C:08D2H         LINE#         78
+  C:08D2H         LINE#         79
+  C:08D2H         LINE#         83
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        ฒ_สิ
+
+  -------         MODULE        COM
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:08C2H         PUBLIC        delay500us
+  C:08B9H         PUBLIC        delay1ms
+  C:08B0H         PUBLIC        delay6ms
+  -------         PROC          DELAY6MS
+  -------         DO            
+  D:0006H         SYMBOL        a
+  D:0007H         SYMBOL        b
+  -------         ENDDO         
+  C:08B0H         LINE#         14
+  C:08B0H         LINE#         15
+  C:08B0H         LINE#         17
+  C:08B2H         LINE#         18
+  C:08B8H         LINE#         19
+  -------         ENDPROC       DELAY6MS
+  -------         PROC          DELAY1MS
+  -------         DO            
+  D:0006H         SYMBOL        a
+  D:0007H         SYMBOL        b
+  -------         ENDDO         
+  C:08B9H         LINE#         24
+  C:08B9H         LINE#         25
+  C:08B9H         LINE#         27
+  C:08BBH         LINE#         28
+  C:08C1H         LINE#         29
+  -------         ENDPROC       DELAY1MS
+  -------         PROC          DELAY500US
+  -------         DO            
+  D:0006H         SYMBOL        a
+  D:0007H         SYMBOL        b
+  -------         ENDDO         
+  C:08C2H         LINE#         32
+  C:08C2H         LINE#         33
+  C:08C2H         LINE#         35
+  C:08C4H         LINE#         36
+  C:08CAH         LINE#         37
+  -------         ENDPROC       DELAY500US
+  -------         ENDMOD        COM
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/22/2015  17:52:38  PAGE 5
+
+
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DELAY500US
+    MODULE:  com.obj (COM)
+
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DELAY1MS
+    MODULE:  com.obj (COM)
+
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  DELAY6MS
+    MODULE:  com.obj (COM)
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?INTER_INIT?ฒ_สิ
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY1MS?ฒ_สิ
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY500US?ฒ_สิ
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY6MS?COM
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY1MS?COM
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DELAY500US?COM
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00D9H BYTE (10%) *
+******************************************************************************
+
+Program Size: data=9.0 xdata=10 code=217
+LINK/LOCATE RUN COMPLETE.  6 WARNING(S),  3 ERROR(S)

@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"温度.obj" 
+TO "初步完成版" 
+RAMSIZE(256) 

@@ -1,0 +1,74 @@
+C51 COMPILER V9.01   INFRARED                                                              03/22/2015 20:43:15 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE INFRARED
+OBJECT MODULE PLACED IN infrared.OBJ
+COMPILER INVOKED BY: D:\keil4\0000\C51\BIN\C51.EXE infrared.c LARGE BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          //红外
+   2          sbit inf=P3^2; 
+*** ERROR C202 IN LINE 2 OF INFRARED.C: 'P3': undefined identifier
+   3          uchar sure=0;
+*** ERROR C129 IN LINE 3 OF INFRARED.C: missing ';' before 'sure'
+   4          uchar inf_dat[4];
+   5          uchar inf_sure;
+   6          void inter_init();
+   7          
+   8          
+   9          
+  10          
+  11          
+  12          
+  13          void inter_init()
+  14          {
+  15           EX0=1;
+  16           IT0=1;
+  17           EA=1;
+  18            
+  19          }
+  20          
+  21          void infrared()interrupt 0
+  22          { 
+  23           uchar AGC=0,STA=0,i,n=0;
+  24            uint a=0,temp,tag;
+  25             delay6ms();
+  26             if(inf==0) AGC=1;
+  27             delay6ms();
+  28             if(inf==1) STA=1;
+  29             if(AGC==1&&STA==1)
+  30             {
+  31               while(1)
+  32               {
+  33                while(inf==1&&a<1000)
+  34                    { a++;delay1ms();}//检测数据是否数据位，a用来防止死机
+  35                delay1ms();
+  36                    delay500us();
+  37                           if(inf==1) tag=1;
+  38                           if(inf==0) tag=0; 
+  39                           for(n=0;n<4;n++)
+  40                           {
+  41                                  for(i=0;i<8;i++)
+  42                                  {
+  43                                  temp<<=1;
+  44                                  temp=temp|tag;
+  45                                  }
+  46                                  inf_dat[n]=temp;
+  47                   }
+  48                   }
+  49             }
+  50            sure=0;
+  51            if(inf_dat[2]==~inf_dat[3]) sure=1;
+  52            inf_sure=inf_dat[2];
+  53            
+C51 COMPILER V9.01   INFRARED                                                              03/22/2015 20:43:15 PAGE 2   
+
+  54            
+  55          }
+  56          
+  57          
+  58          
+  59          
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  2 ERROR(S)

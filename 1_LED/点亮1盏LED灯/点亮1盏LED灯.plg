@@ -1,0 +1,20 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+X:\_01_单片机\_01_51\_01_普中\_02_程序\_01_我的程序\1_LED\点亮1盏LED灯\点亮1盏LED灯.uvproj
+Project File Date:  04/11/2016
+
+<h2>Output:</h2>
+Build target '目标 1'
+compiling 点亮1盏LED灯.c...
+linking...
+Program Size: data=9.0 xdata=0 code=29
+creating hex file from "点亮1盏LED灯"...
+"点亮1盏LED灯" - 0 Error(s), 0 Warning(s).
+Build target '目标 1'
+linking...
+Program Size: data=9.0 xdata=0 code=29
+creating hex file from "点亮1盏LED灯"...
+"点亮1盏LED灯" - 0 Error(s), 0 Warning(s).

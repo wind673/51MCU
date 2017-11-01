@@ -1,0 +1,7 @@
+".\OBJ\main.obj",
+".\OBJ\STARTUP.obj",
+".\OBJ\delay.obj",
+".\OBJ\lcd.obj",
+".\OBJ\uart.obj" 
+TO ".\OBJ\3" 
+PRINT(".\3.m51")
